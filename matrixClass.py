@@ -1,8 +1,5 @@
 import jsonpickle
 import copy
-import numpy
-
-numpy.linalg.det
 
 
 class MyMatrix:
@@ -131,8 +128,8 @@ class MyMatrix:
             print("x[{}] = {}".format(i+1 , self.x[i]))
         print()
 
-
-    def load(filename):
+    @classmethod
+    def load(self, filename):
         file = open(filename)
         jsnstr = file.read()
         mx = jsonpickle.decode(jsnstr)

@@ -25,7 +25,7 @@ matrixSq.print()
 print("cond: ", matrixSq.cond())
 
 matrixSq.gaussianElim()
-matrixSq.print()
+matrixSq.printResult()
 
 
 #savematrix
