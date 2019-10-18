@@ -1,23 +1,36 @@
 from matrixClass import MyMatrix
-filename = 'data.json'
-filenameRes = 'result.json'
+
+#Метод исключения Гаусса с ведущим элементом и метод прогонки
+
+squareMatrixFile = 'squareMatrix.json'
+squareMatrixOut = 'squareMatrixOut.json'
+tridiagMatrixOut = 'tridiagMatrixOut.json'
+tridiagMatrixFile = 'tridiagMatrix.json'
 
 
-matrix = MyMatrix.load(filename)
-#matrix.print()
+print("Tridiagonal matrix")
+matrixTr = MyMatrix.load(tridiagMatrixFile)
+matrixTr.print()
+
+matrixTr.tridiagonalSysSolve()
+matrixTr.printResult()
+
+
+print("Gaussian Elimination")
+matrixSq = MyMatrix.load(squareMatrixFile)
+matrixSq.print()
+
 
 #cond
-print("cond: " , matrix.cond())
+print("cond: ", matrixSq.cond())
 
-#Метод исключения Гаусса с ведущим элементом
-#matrix.solve()
-
-
-#matrix.print()
+matrixSq.gaussianElim()
+matrixSq.print()
 
 
 #savematrix
-matrix.save(filenameRes)
+matrixSq.save(squareMatrixOut)
+matrixTr.save(tridiagMatrixOut)
 
 
 
