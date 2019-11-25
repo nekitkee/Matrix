@@ -185,15 +185,27 @@ class MyMatrix:
         matrix_mod = self.copy()
         matrix_mod.modify()
         dB = MyMatrix.diff(matrix.b , matrix_mod.b)
+
+        NB = MyMatrix.norm(matrix.b)
         matrix.gaussianElim()
+        matrix.print()
         matrix_mod.gaussianElim()
 
         dX = MyMatrix.diff(matrix.x , matrix_mod.x)
         NX = MyMatrix.norm(matrix.x)
-        NB = MyMatrix.norm(matrix.b)
+
         NdX = MyMatrix.norm(dX)
         NdB = MyMatrix.norm(dB)
         cond = NdX/NX * NB/NdB
+
+        print("db ", dB)
+        print("dX ", dX)
+        print("NX  ", NX)
+        print('b',matrix.b)
+        print("NB ", NB)
+        print("NdX ", NdX)
+        print("NdB ", NdB)
+        print("cond " , cond)
 
         return cond
 
